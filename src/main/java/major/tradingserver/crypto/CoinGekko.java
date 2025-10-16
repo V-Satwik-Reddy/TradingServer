@@ -1,7 +1,6 @@
-package major.tradingserver.crypto.binance;
+package major.tradingserver.crypto;
 
 import major.tradingserver.ApiResponse;
-import major.tradingserver.crypto.Coin;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,17 +10,16 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/binance")
-public class Binance {
+@RequestMapping("/coingekko")
+public class CoinGekko {
     private final PriceFetch pf;
-    public Binance(PriceFetch pf) {
+    public CoinGekko(PriceFetch pf) {
         this.pf = pf;
     }
     @GetMapping("/")
     public ResponseEntity<String> home() {
-        return ResponseEntity.ok("Welcome to Binance Server!");
+        return ResponseEntity.ok("Welcome to Coingekko Server!");
     }
-
     @PostMapping("/buy")
     public ResponseEntity<ApiResponse<Coin>> buyCoin(@RequestBody Coin coin) {
         double price=pf.getPrice(coin)*pf.usdInr();
@@ -43,5 +41,4 @@ public class Binance {
         ApiResponse<Coin> response= new ApiResponse<>("coin sold successfully", sellcoin, HttpStatus.CREATED.value());
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-
 }

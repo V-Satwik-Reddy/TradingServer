@@ -1,8 +1,7 @@
-package major.tradingserver.crypto.binance;
+package major.tradingserver.crypto;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import major.tradingserver.crypto.Coin;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
