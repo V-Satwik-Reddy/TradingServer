@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("blackrock")
+@RequestMapping("vanguard")
 public class Vanguard {
     PriceFetchS pf;
     public Vanguard(major.tradingserver.stock.PriceFetchS pf) {
